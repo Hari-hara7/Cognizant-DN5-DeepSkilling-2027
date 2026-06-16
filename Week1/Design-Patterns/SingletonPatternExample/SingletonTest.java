@@ -8,14 +8,14 @@ public class SingletonTest {
 
         if(logger1==logger2){
             System.out.println("Only one Logger instance exists.");
-
         }
         else{
             System.out.println("Multiple Logger instances exist");
         }
-
         System.out.println("Logger1 hashcode: " + logger1.hashCode());
         System.out.println("Logger2 hashcode :"+ logger2.hashCode());
+
+        
 
     }
 }
