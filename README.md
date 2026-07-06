@@ -20,7 +20,7 @@ Cognizant Digital Nurture 5.0 is a skilling initiative aimed at building industr
 ## Contact
 
 For any queries regarding this repository, feel free to reach out:
-- 📧 Email: hariharanath247@gmail.com
+-  Email: hariharanath247@gmail.com
 
 ---
 *This README is submitted as part of the Cognizant Digital Nurture 5.0 program requirements.*
