@@ -14,5 +14,5 @@ create table loans (
     LoanAmount number,
     InterestRate number,
     StartDate date,
-    EndDate date,
+    EndDate date
 );
