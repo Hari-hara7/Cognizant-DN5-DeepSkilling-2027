@@ -1,13 +1,33 @@
-<div class="card">
+<div class="card" [ngClass]="cardClasses" [ngStyle]="cardStyles">
 
-<h3>{{course.name}}</h3>
+<h3>{{course.name | uppercase}}</h3>
 
 <p>Code : {{course.code}}</p>
 
-<p>Credits : {{course.credits}}</p>
+<p>Credits : {{course.credits | creditLabel}}</p>
+
+<p>Starts : {{course.startDate | date:'mediumDate'}}</p>
+
+<p>Fee : {{course.fee | currency:'INR':'symbol':'1.0-0'}}</p>
+
+<p>Progress : {{course.progress | number:'1.1-1'}}%</p>
+
+<div [ngSwitch]="course.gradeStatus">
+  <span *ngSwitchCase="'passed'" class="badge badge--passed">Passed</span>
+  <span *ngSwitchCase="'failed'" class="badge badge--failed">Failed</span>
+  <span *ngSwitchDefault class="badge badge--pending">Pending</span>
+</div>
 
 <button (click)="enroll()">
 Enroll
 </button>
+
+<button type="button" (click)="toggleDetails()">
+{{ isExpanded ? 'Hide Details' : 'Show Details' }}
+</button>
+
+<p *ngIf="isExpanded">
+Detailed status for {{course.name}} is {{course.gradeStatus}}.
+</p>
 
 </div>
