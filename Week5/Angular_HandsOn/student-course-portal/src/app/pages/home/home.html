@@ -1,15 +1,32 @@
 <div class="home">
 
-<h1>Welcome to Student Course Portal</h1>
+<h1>{{ portalName }}</h1>
 
 <p>
 Manage your courses, view profile and track academic progress.
 </p>
 
+<button
+(click)="onEnrollClick()"
+[disabled]="!isPortalActive">
+Enroll Now
+</button>
+
+<p>{{message}}</p>
+
+<br>
+
+<input
+type="text"
+[(ngModel)]="searchTerm"
+placeholder="Search course">
+
+<p>Searching for: {{searchTerm}}</p>
+
 <div class="stats">
 
 <div class="card">
-<h2>12</h2>
+<h2>{{availableCourses}}</h2>
 <p>Courses Available</p>
 </div>
 
