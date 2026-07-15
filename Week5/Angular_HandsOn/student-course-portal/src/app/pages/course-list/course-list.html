@@ -1,5 +1,7 @@
 <h2>Available Courses</h2>
 
+<app-course-summary-widget></app-course-summary-widget>
+
 <p *ngIf="isLoading; else coursesLoaded">Loading courses...</p>
 
 <ng-template #coursesLoaded>

@@ -19,7 +19,7 @@
 </div>
 
 <button (click)="enroll()">
-Enroll
+{{ isEnrolled ? 'Unenroll' : 'Enroll' }}
 </button>
 
 <button type="button" (click)="toggleDetails()">

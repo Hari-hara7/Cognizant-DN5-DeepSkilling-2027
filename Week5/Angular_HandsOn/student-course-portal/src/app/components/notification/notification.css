@@ -1,0 +1,10 @@
+.notification {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-left: 4px solid #2563eb;
+  background: #eff6ff;
+}
+
+.notification p {
+  margin: 0;
+}

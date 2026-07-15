@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import type { CanLeaveDirtyForm } from '../../guards/unsaved-changes.guard';
 
 @Component({
   selector: 'app-enrollment-form',
@@ -8,7 +9,10 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './enrollment-form.html',
   styleUrl: './enrollment-form.css',
 })
-export class EnrollmentFormComponent {
+export class EnrollmentFormComponent implements CanLeaveDirtyForm {
+  @ViewChild('enrollForm')
+  enrollForm?: NgForm;
+
   submitted = false;
 
   enrollmentRequest = {
@@ -25,6 +29,15 @@ export class EnrollmentFormComponent {
 
     if (form.valid) {
       this.submitted = true;
+      form.resetForm();
     }
+  }
+
+  canDeactivate(): boolean {
+    if (this.submitted || !this.enrollForm?.dirty) {
+      return true;
+    }
+
+    return confirm('You have unsaved enrollment changes. Leave this page?');
   }
 }

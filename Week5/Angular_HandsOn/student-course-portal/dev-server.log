@@ -30,3 +30,10 @@ Application bundle generation failed. [1.257 seconds] - 2026-07-15T05:58:35.638Z
 Application bundle generation complete. [0.865 seconds] - 2026-07-15T06:01:43.339Z
 
 Page reload sent to client(s).
+[33m>[39m Changes detected. Rebuilding...
+[32m√[39m Changes detected. Rebuilding...
+
+No output file changes.
+
+Application bundle generation complete. [3.862 seconds] - 2026-07-15T06:14:26.842Z
+
