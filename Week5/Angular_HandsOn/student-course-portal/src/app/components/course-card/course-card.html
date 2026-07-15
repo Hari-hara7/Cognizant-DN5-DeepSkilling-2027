@@ -1,4 +1,4 @@
-<div class="card" [ngClass]="cardClasses" [ngStyle]="cardStyles">
+<div class="card" [ngClass]="cardClasses" [ngStyle]="cardStyles" (click)="selectCourse()" tabindex="0">
 
 <h3>{{course.name | uppercase}}</h3>
 
@@ -18,11 +18,11 @@
   <span *ngSwitchDefault class="badge badge--pending">Pending</span>
 </div>
 
-<button (click)="enroll()">
+<button (click)="$event.stopPropagation(); enroll()">
 {{ isEnrolled ? 'Unenroll' : 'Enroll' }}
 </button>
 
-<button type="button" (click)="toggleDetails()">
+<button type="button" (click)="$event.stopPropagation(); toggleDetails()">
 {{ isExpanded ? 'Hide Details' : 'Show Details' }}
 </button>
 

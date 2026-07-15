@@ -26,6 +26,9 @@ export class CourseCardComponent implements OnChanges {
   @Output()
   enrollRequested = new EventEmitter<number>();
 
+  @Output()
+  courseSelected = new EventEmitter<number>();
+
   isExpanded = false;
 
   constructor(private enrollmentService: EnrollmentService) {}
@@ -68,6 +71,10 @@ export class CourseCardComponent implements OnChanges {
 
     this.enrollRequested.emit(this.course.id);
 
+  }
+
+  selectCourse(): void {
+    this.courseSelected.emit(this.course.id);
   }
 
   toggleDetails(): void {

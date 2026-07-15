@@ -10,6 +10,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import type { CanLeaveDirtyForm } from '../../guards/unsaved-changes.guard';
 
 export function noCourseCode(control: AbstractControl): ValidationErrors | null {
   const value = String(control.value ?? '').trim();
@@ -33,7 +34,7 @@ export function simulateEmailCheck(control: AbstractControl): Promise<Validation
   templateUrl: './reactive-enrollment-form.html',
   styleUrl: './reactive-enrollment-form.css',
 })
-export class ReactiveEnrollmentFormComponent implements OnInit {
+export class ReactiveEnrollmentFormComponent implements OnInit, CanLeaveDirtyForm {
   submitted = false;
 
   enrollForm!: FormGroup;
@@ -69,6 +70,15 @@ export class ReactiveEnrollmentFormComponent implements OnInit {
 
     if (this.enrollForm.valid) {
       this.submitted = true;
+      this.enrollForm.markAsPristine();
     }
+  }
+
+  canDeactivate(): boolean {
+    if (this.submitted || !this.enrollForm?.dirty) {
+      return true;
+    }
+
+    return window.confirm('You have unsaved changes. Leave?');
   }
 }

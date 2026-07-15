@@ -2,14 +2,26 @@
 
 <app-course-summary-widget></app-course-summary-widget>
 
+<label class="search-field" for="courseSearch">
+  Search courses
+  <input
+    id="courseSearch"
+    type="search"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange()"
+    placeholder="Search by name or code"
+  />
+</label>
+
 <p *ngIf="isLoading; else coursesLoaded">Loading courses...</p>
 
 <ng-template #coursesLoaded>
-  <section class="course-grid" *ngIf="courses.length > 0; else noCourses">
+  <section class="course-grid" *ngIf="filteredCourses.length > 0; else noCourses">
     <app-course-card
-      *ngFor="let course of courses; let i = index; trackBy: trackByCourseId"
+      *ngFor="let course of filteredCourses; let i = index; trackBy: trackByCourseId"
       appHighlight="lightblue"
       [course]="course"
+      (courseSelected)="openCourse($event)"
       (enrollRequested)="onEnroll($event)">
     </app-course-card>
   </section>

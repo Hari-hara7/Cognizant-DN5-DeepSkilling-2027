@@ -6,6 +6,7 @@
     min-height:245px;
     background-color:inherit;
     transition:background-color .2s ease,border-color .2s ease,min-height .2s ease,box-shadow .2s ease;
+    cursor:pointer;
 }
 
 .card--enrolled{

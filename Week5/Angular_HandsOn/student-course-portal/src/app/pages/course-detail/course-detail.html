@@ -1,0 +1,18 @@
+<section class="course-detail" *ngIf="course; else missingCourse">
+  <a routerLink="/courses">Back to courses</a>
+
+  <h2>{{ course.name }}</h2>
+  <p>Code: {{ course.code }}</p>
+  <p>Credits: {{ course.credits }}</p>
+  <p>Status: {{ course.gradeStatus }}</p>
+  <p>Starts: {{ course.startDate | date:'mediumDate' }}</p>
+  <p>Fee: {{ course.fee | currency:'INR':'symbol':'1.0-0' }}</p>
+  <p>Progress: {{ course.progress | number:'1.1-1' }}%</p>
+</section>
+
+<ng-template #missingCourse>
+  <section class="course-detail">
+    <h2>Course not found</h2>
+    <a routerLink="/courses">Back to courses</a>
+  </section>
+</ng-template>
