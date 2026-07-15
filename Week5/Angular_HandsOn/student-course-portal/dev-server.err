@@ -1,0 +1,49 @@
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2729: Property 'fb' is used before its initialization.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:38:20:
+[37m      38 │   enrollForm = this.[32mfb[37m.group({
+         ╵                     [32m~~[0m
+
+  'fb' is declared here.
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:47:14:
+[37m      47 │   constructor([32mprivate fb: FormBuilder[37m) {}
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2729: Property 'fb' is used before its initialization.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:40:23:
+[37m      40 │     studentEmail: this.[32mfb[37m.control('', [Validators.required, Valida...
+         ╵                        [32m~~[0m
+
+  'fb' is declared here.
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:47:14:
+[37m      47 │   constructor([32mprivate fb: FormBuilder[37m) {}
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2729: Property 'fb' is used before its initialization.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:44:28:
+[37m      44 │     additionalCourses: this.[32mfb[37m.array<FormControl<string | null>>([]),
+         ╵                             [32m~~[0m
+
+  'fb' is declared here.
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:47:14:
+[37m      47 │   constructor([32mprivate fb: FormBuilder[37m) {}
+         ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2719: Type 'import("C:/Users/harih/cog7/Cognizant-DN5-DeepSkilling-2027/Week5/Angular_HandsOn/student-course-portal/node_modules/@angular/forms/types/forms").FormGroup<ɵNullableFormControls<{ studentName: (string | ((control: import("C:/Users/harih/cog7/Cognizant-DN5-DeepSkilling-2027/Week5/Angular_HandsOn/student-course-portal...' is not assignable to type 'import("C:/Users/harih/cog7/Cognizant-DN5-DeepSkilling-2027/Week5/Angular_HandsOn/student-course-portal/node_modules/@angular/forms/types/forms").FormGroup<ɵNullableFormControls<{ studentName: (string | ((control: import("C:/Users/harih/cog7/Cognizant-DN5-DeepSkilling-2027/Week5/Angular_HandsOn/student-course-portal...'. Two different types with this name exist, but they are unrelated.
+  Type 'FormControl<boolean | null>' is not assignable to type 'FormControl<false | null>'.
+    Type 'boolean | null' is not assignable to type 'false | null'.
+      Type 'true' is not assignable to type 'false'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/pages/reactive-enrollment-form/reactive-enrollment-form.ts:50:4:
+[37m      50 │     [32mthis.enrollForm[37m = this.fb.group({
+         ╵     [32m~~~~~~~~~~~~~~~[0m
+
+[39m[22m
