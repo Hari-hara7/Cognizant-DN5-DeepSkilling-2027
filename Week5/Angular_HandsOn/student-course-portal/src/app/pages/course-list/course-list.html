@@ -33,12 +33,13 @@
 </form>
 
 <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+<p class="error-message" *ngIf="storeError$ | async as storeError">{{ storeError }}</p>
 <p class="success-message" *ngIf="courseMessage">{{ courseMessage }}</p>
 
-<p *ngIf="isLoading; else coursesLoaded">Loading courses...</p>
+<p *ngIf="loading$ | async; else coursesLoaded">Loading courses...</p>
 
 <ng-template #coursesLoaded>
-  <section class="course-grid" *ngIf="filteredCourses.length > 0; else noCourses">
+  <section class="course-grid" *ngIf="filteredCourses$ | async as filteredCourses">
     <article class="course-item" *ngFor="let course of filteredCourses; let i = index; trackBy: trackByCourseId">
       <app-course-card
         appHighlight="lightblue"
@@ -52,6 +53,8 @@
         <button type="button" class="delete-button" (click)="deleteCourse(course.id)">Delete {{ course.code }}</button>
       </div>
     </article>
+
+    <p *ngIf="filteredCourses.length === 0">No courses available.</p>
   </section>
 </ng-template>
 

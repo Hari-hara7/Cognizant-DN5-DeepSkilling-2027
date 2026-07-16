@@ -13,7 +13,10 @@ export class CourseService {
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.apiUrl).pipe(
-      map((courses) => courses.filter((course) => course.credits > 0)),
+      map((courses) => courses
+        .map((course) => ({ ...course, id: Number(course.id) }))
+        .filter((course) => course.credits > 0)
+      ),
       retry(2),
       // tap is for side effects like logging; map stays reserved for data transformations.
       tap((courses) => console.log('Courses loaded:', courses.length)),
@@ -26,6 +29,7 @@ export class CourseService {
 
   getCourseById(id: number): Observable<Course> {
     return this.http.get<Course>(`${this.apiUrl}/${id}`).pipe(
+      map((course) => ({ ...course, id: Number(course.id) })),
       catchError((err) => {
         console.error(err);
         return throwError(() => new Error('Failed to load course details. Please try again.'));

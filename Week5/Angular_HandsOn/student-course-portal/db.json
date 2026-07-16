@@ -29,6 +29,316 @@
       "startDate": "2026-09-20",
       "fee": 2999,
       "progress": 88.1
+    },
+    {
+      "name": "Elective 4",
+      "code": "CS104",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "sGKdmAO31Ig"
+    },
+    {
+      "name": "Elective 5",
+      "code": "CS105",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "hUb5cs2595Y"
+    },
+    {
+      "name": "Elective 6",
+      "code": "CS106",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "5lF-cWocgyk"
+    },
+    {
+      "name": "Elective 7",
+      "code": "CS107",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "Mptiwe-L9-I"
+    },
+    {
+      "name": "Elective 8",
+      "code": "CS108",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "6T14cJCyqbA"
+    },
+    {
+      "name": "Elective 9",
+      "code": "CS109",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "R64fBNho9rA"
+    },
+    {
+      "name": "Elective 10",
+      "code": "CS110",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "dfUGbjCKPl8"
+    },
+    {
+      "name": "Elective 11",
+      "code": "CS111",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "dnAkgAydotk"
+    },
+    {
+      "name": "Elective 12",
+      "code": "CS112",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "sQvVfahhdsE"
+    },
+    {
+      "name": "Elective 13",
+      "code": "CS113",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "Q8MTNwOVJ3E"
+    },
+    {
+      "name": "Elective 14",
+      "code": "CS114",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "LdMDHwOg-jw"
+    },
+    {
+      "name": "Elective 15",
+      "code": "CS115",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "XjcG_bYUnMw"
+    },
+    {
+      "name": "Elective 16",
+      "code": "CS116",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "yYRlizSVWjY"
+    },
+    {
+      "name": "Elective 17",
+      "code": "CS117",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "nrHaF3GKc2o"
+    },
+    {
+      "name": "Elective 19",
+      "code": "CS119",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "ig9jfbkTIIA"
+    },
+    {
+      "name": "Elective 20",
+      "code": "CS120",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "S_sFOuj6o2E"
+    },
+    {
+      "name": "Elective 21",
+      "code": "CS121",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "5Vr0JY734ZY"
+    },
+    {
+      "name": "Elective 22",
+      "code": "CS122",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "D17IOMryllA"
+    },
+    {
+      "name": "Elective 23",
+      "code": "CS123",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "q7UmIFWudGE"
+    },
+    {
+      "name": "Elective 24",
+      "code": "CS124",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "V0xh-ohQars"
+    },
+    {
+      "name": "Elective 25",
+      "code": "CS125",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "xhfNxSVO6aY"
+    },
+    {
+      "name": "Elective 26",
+      "code": "CS126",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "fT6CzgjPyWw"
+    },
+    {
+      "name": "Elective 27",
+      "code": "CS127",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "7Rn8pPSbJ_E"
+    },
+    {
+      "name": "Elective 28",
+      "code": "CS128",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "510mAuOM5cA"
+    },
+    {
+      "name": "Elective 29",
+      "code": "CS129",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "hg2z9VKkCcE"
+    },
+    {
+      "name": "Elective 30",
+      "code": "CS130",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "iiFdlA3aklg"
+    },
+    {
+      "name": "Elective 31",
+      "code": "CS131",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "XusqwjWqyWU"
+    },
+    {
+      "name": "Elective 32",
+      "code": "CS132",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "o7hbxkaHlXA"
+    },
+    {
+      "name": "Elective 32",
+      "code": "CS132",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "9ZlTurNPeRs"
+    },
+    {
+      "name": "Elective 33",
+      "code": "CS133",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "mPneVbxy66E"
+    },
+    {
+      "name": "Elective 34",
+      "code": "CS134",
+      "credits": 2,
+      "gradeStatus": "pending",
+      "startDate": "2026-11-01T00:00:00.000Z",
+      "fee": 3499,
+      "progress": 0,
+      "id": "IPJvA_6kf1k"
     }
   ],
   "students": [
@@ -41,6 +351,11 @@
       "id": "2",
       "name": "Rahul Sharma",
       "email": "rahul@example.com"
+    },
+    {
+      "name": "Harihara",
+      "email": "hariharanath247@gmail.com",
+      "id": "AA8d4EZf1Tw"
     }
   ],
   "enrollments": [
@@ -97,6 +412,36 @@
       "courseId": "4",
       "preferredSemester": "Odd",
       "id": "UZ4SoXrmRL8"
+    },
+    {
+      "studentId": 1,
+      "courseId": "2",
+      "preferredSemester": "Odd",
+      "id": "zVS8SI9Pums"
+    },
+    {
+      "studentId": 1,
+      "courseId": "3",
+      "preferredSemester": "Odd",
+      "id": "XLfYLl0JV6M"
+    },
+    {
+      "studentId": 1,
+      "courseId": "4",
+      "preferredSemester": "Odd",
+      "id": "79GD-LtDQLY"
+    },
+    {
+      "studentId": 1,
+      "courseId": "4",
+      "preferredSemester": "Odd",
+      "id": "CpDkq84SEFY"
+    },
+    {
+      "studentId": "AA8d4EZf1Tw",
+      "courseId": 5,
+      "preferredSemester": "Odd",
+      "id": "2f8hl2uS82Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

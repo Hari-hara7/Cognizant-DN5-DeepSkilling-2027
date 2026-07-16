@@ -2,14 +2,17 @@ import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, switchMap } from 'rxjs';
+import { combineLatest, map, Observable, Subject, switchMap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Store } from '@ngrx/store';
 import { CourseCardComponent } from '../../components/course-card/course-card';
 import { CourseSummaryWidgetComponent } from '../../components/course-summary-widget/course-summary-widget';
 import { HighlightDirective } from '../../directives/highlight';
 import type { Course } from '../../models/course.model';
 import { CourseService } from '../../services/course';
 import { EnrollmentService, Student } from '../../services/enrollment';
+import { loadCourses } from '../../store/course/course.actions';
+import { selectAllCourses, selectCoursesError, selectCoursesLoading } from '../../store/course/course.selectors';
 
 @Component({
   selector:'app-course-list',
@@ -32,6 +35,10 @@ private readonly selectedCourseId$ = new Subject<number>();
 isLoading = true;
 
 courses: Course[] = [];
+courses$: Observable<Course[]>;
+filteredCourses$: Observable<Course[]>;
+loading$: Observable<boolean>;
+storeError$: Observable<string | null>;
 enrolledStudents: Student[] = [];
 errorMessage = '';
 courseMessage = '';
@@ -56,12 +63,20 @@ constructor(
   private courseService: CourseService,
   private enrollmentService: EnrollmentService,
   private route: ActivatedRoute,
-  private router: Router
-) {}
+  private router: Router,
+  private store: Store
+) {
+  this.courses$ = this.store.select(selectAllCourses);
+  this.loading$ = this.store.select(selectCoursesLoading);
+  this.storeError$ = this.store.select(selectCoursesError);
+  this.filteredCourses$ = combineLatest([this.courses$, this.route.queryParamMap]).pipe(
+    map(([courses, params]) => this.filterCourses(courses, params.get('search') ?? this.searchTerm))
+  );
+}
 
 ngOnInit(): void {
   this.searchTerm = this.route.snapshot.queryParamMap.get('search') ?? '';
-  this.loadCourses();
+  this.store.dispatch(loadCourses());
 
   this.selectedCourseId$.pipe(
     // switchMap cancels the previous student request when a newer courseId arrives.
@@ -78,15 +93,17 @@ ngOnInit(): void {
 }
 
 get filteredCourses(): Course[] {
-  const search = this.searchTerm.trim().toLowerCase();
+  return this.filterCourses(this.courses, this.searchTerm);
+}
 
-  if (!search) {
-    return this.courses;
-  }
+filterCourses(courses: Course[], searchTerm: string): Course[] {
+  const search = searchTerm.trim().toLowerCase();
 
-  return this.courses.filter((course) => {
-    return course.name.toLowerCase().includes(search) || course.code.toLowerCase().includes(search);
-  });
+  return search
+    ? courses.filter((course) =>
+      course.name.toLowerCase().includes(search) || course.code.toLowerCase().includes(search)
+    )
+    : courses;
 }
 
 trackByCourseId(index: number, course: Course): number {
@@ -104,23 +121,7 @@ this.selectedCourseId$.next(id);
 }
 
 loadCourses(): void {
-  this.isLoading = true;
-  this.errorMessage = '';
-
-  this.courseService.getCourses().pipe(
-    takeUntilDestroyed(this.destroyRef)
-  ).subscribe({
-    next: (courses) => {
-      this.courses = courses;
-    },
-    error: (err) => {
-      this.errorMessage = err.message;
-      this.isLoading = false;
-    },
-    complete: () => {
-      this.isLoading = false;
-    }
-  });
+  this.store.dispatch(loadCourses());
 }
 
 saveCourse(): void {
@@ -140,7 +141,7 @@ saveCourse(): void {
     next: () => {
       this.courseMessage = this.editCourseId === null ? 'Course created.' : 'Course updated.';
       this.resetCourseForm();
-      this.loadCourses();
+      this.store.dispatch(loadCourses());
     },
     error: (err) => {
       this.errorMessage = err.message;
@@ -167,7 +168,7 @@ deleteCourse(courseId: number): void {
   ).subscribe({
     next: () => {
       this.courseMessage = 'Course deleted.';
-      this.loadCourses();
+      this.store.dispatch(loadCourses());
     },
     error: (err) => {
       this.errorMessage = err.message;
