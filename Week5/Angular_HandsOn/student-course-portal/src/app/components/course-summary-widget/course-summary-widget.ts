@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
+import type { Course } from '../../models/course.model';
 import { CourseService } from '../../services/course';
 
 @Component({
@@ -10,17 +12,16 @@ import { CourseService } from '../../services/course';
   styleUrl: './course-summary-widget.css'
 })
 export class CourseSummaryWidgetComponent {
-  constructor(private courseService: CourseService) {}
+  courses$: Observable<Course[]>;
 
-  get courseCount(): number {
-    return this.courseService.getCourses().length;
+  constructor(private courseService: CourseService) {
+    this.courses$ = this.courseService.getCourses();
   }
 
-  addDemoCourse(): void {
-    const nextId = this.courseCount + 1;
+  addDemoCourse(courseCount: number): void {
+    const nextId = courseCount + 1;
 
-    this.courseService.addCourse({
-      id: nextId,
+    this.courseService.createCourse({
       name: `Elective ${nextId}`,
       code: `CS${100 + nextId}`,
       credits: 2,
@@ -28,6 +29,8 @@ export class CourseSummaryWidgetComponent {
       startDate: new Date('2026-11-01'),
       fee: 3499,
       progress: 0
+    }).subscribe(() => {
+      this.courses$ = this.courseService.getCourses();
     });
   }
 }

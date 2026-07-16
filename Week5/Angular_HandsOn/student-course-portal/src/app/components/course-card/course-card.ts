@@ -64,12 +64,14 @@ export class CourseCardComponent implements OnChanges {
 
   enroll(){
     if (this.isEnrolled) {
-      this.enrollmentService.unenroll(this.course.id);
+      this.enrollmentService.unenroll(this.course.id).subscribe(() => {
+        this.enrollRequested.emit(this.course.id);
+      });
     } else {
-      this.enrollmentService.enroll(this.course.id);
+      this.enrollmentService.enroll(this.course.id).subscribe(() => {
+        this.enrollRequested.emit(this.course.id);
+      });
     }
-
-    this.enrollRequested.emit(this.course.id);
 
   }
 

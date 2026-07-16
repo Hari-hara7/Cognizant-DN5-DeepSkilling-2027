@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class NotificationService {
   private messages: string[] = [];
 

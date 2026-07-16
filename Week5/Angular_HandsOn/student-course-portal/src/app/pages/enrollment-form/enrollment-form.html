@@ -92,4 +92,8 @@
   <div class="success-message" *ngIf="submitted">
     Enrollment request submitted successfully!
   </div>
+
+  <div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
 </section>

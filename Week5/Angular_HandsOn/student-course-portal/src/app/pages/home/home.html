@@ -26,7 +26,7 @@ placeholder="Search course">
 <div class="stats">
 
 <div class="card">
-<h2>{{availableCourses}}</h2>
+<h2>{{(courses$ | async)?.length ?? 0}}</h2>
 <p>Courses Available</p>
 </div>
 

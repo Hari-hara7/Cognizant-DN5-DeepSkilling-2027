@@ -1,72 +1,47 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { catchError, map, Observable, retry, tap, throwError } from 'rxjs';
 import type { Course } from '../models/course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
-  private courses: Course[] = [
-    {
-      id: 1,
-      name: 'Angular',
-      code: 'CS101',
-      credits: 4,
-      gradeStatus: 'passed',
-      startDate: new Date('2026-08-01'),
-      fee: 4999,
-      progress: 92.45
-    },
-    {
-      id: 2,
-      name: 'Spring Boot',
-      code: 'CS102',
-      credits: 3,
-      gradeStatus: 'pending',
-      startDate: new Date('2026-08-12'),
-      fee: 5499,
-      progress: 64.2
-    },
-    {
-      id: 3,
-      name: 'Java',
-      code: 'CS103',
-      credits: 4,
-      gradeStatus: 'failed',
-      startDate: new Date('2026-09-03'),
-      fee: 3999,
-      progress: 48.75
-    },
-    {
-      id: 4,
-      name: 'SQL',
-      code: 'CS104',
-      credits: 1,
-      gradeStatus: 'passed',
-      startDate: new Date('2026-09-20'),
-      fee: 2999,
-      progress: 88.1
-    },
-    {
-      id: 5,
-      name: 'Microservices',
-      code: 'CS105',
-      credits: 2,
-      gradeStatus: 'pending',
-      startDate: new Date('2026-10-05'),
-      fee: 5999,
-      progress: 0
-    }
-  ];
+  private readonly apiUrl = 'http://localhost:3000/courses';
 
-  getCourses(): Course[] {
-    return this.courses;
+  constructor(private http: HttpClient) {}
+
+  getCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(this.apiUrl).pipe(
+      map((courses) => courses.filter((course) => course.credits > 0)),
+      retry(2),
+      // tap is for side effects like logging; map stays reserved for data transformations.
+      tap((courses) => console.log('Courses loaded:', courses.length)),
+      catchError((err) => {
+        console.error(err);
+        return throwError(() => new Error('Failed to load courses. Please try again.'));
+      })
+    );
   }
 
-  getCourseById(id: number): Course | undefined {
-    return this.courses.find((course) => course.id === id);
+  getCourseById(id: number): Observable<Course> {
+    return this.http.get<Course>(`${this.apiUrl}/${id}`).pipe(
+      catchError((err) => {
+        console.error(err);
+        return throwError(() => new Error('Failed to load course details. Please try again.'));
+      })
+    );
   }
 
-  addCourse(course: Course): void {
-    this.courses.push(course);
+  createCourse(course: Omit<Course, 'id'>): Observable<Course> {
+    return this.http.post<Course>(this.apiUrl, course);
+  }
+
+  updateCourse(id: number, course: Omit<Course, 'id'>): Observable<Course> {
+    return this.http.put<Course>(`${this.apiUrl}/${id}`, course);
+  }
+
+  deleteCourse(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

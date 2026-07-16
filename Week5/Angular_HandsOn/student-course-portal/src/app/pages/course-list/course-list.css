@@ -1,8 +1,13 @@
-.course-grid{
+:host {
+    display:block;
+    padding:24px;
+}
+
+.course-grid {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:18px;
-    align-items:start;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:22px;
+    align-items:stretch;
 }
 
 .search-field {
@@ -18,4 +23,101 @@
     padding:8px 10px;
     border:1px solid #cbd5e1;
     border-radius:6px;
+}
+
+.course-editor {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(160px,1fr));
+    gap:12px;
+    align-items:end;
+    margin:18px 0 24px;
+    padding:16px;
+    border:1px solid #d7dee8;
+    border-radius:8px;
+    background:#f8fafc;
+}
+
+.course-editor h3 {
+    grid-column:1 / -1;
+    margin:0;
+}
+
+.course-editor input,
+.course-editor select {
+    min-width:0;
+    padding:9px 10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font:inherit;
+}
+
+.course-editor button,
+.course-actions button {
+    padding:9px 12px;
+    border:1px solid #2563eb;
+    border-radius:6px;
+    background:#2563eb;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.course-editor button[type="button"] {
+    border-color:#94a3b8;
+    background:white;
+    color:#334155;
+}
+
+.course-item {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.course-actions {
+    display:flex;
+    gap:8px;
+}
+
+.course-actions button {
+    flex:1;
+}
+
+.course-actions .delete-button {
+    border-color:#dc2626;
+    background:#dc2626;
+}
+
+.error-message {
+    padding:10px 12px;
+    border-radius:6px;
+    background:#fef2f2;
+    color:#991b1b;
+    font-weight:600;
+}
+
+.success-message {
+    padding:10px 12px;
+    border-radius:6px;
+    background:#f0fdf4;
+    color:#166534;
+    font-weight:600;
+}
+
+.student-list {
+    margin-top:20px;
+    padding:14px 16px;
+    border:1px solid #d7dee8;
+    border-radius:8px;
+    background:white;
+}
+
+@media (max-width: 800px) {
+    :host {
+        padding:16px;
+    }
+
+    .course-editor {
+        grid-template-columns:1fr;
+    }
 }

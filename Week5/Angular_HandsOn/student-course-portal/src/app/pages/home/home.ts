@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { NotificationComponent } from '../../components/notification/notification';
+import type { Course } from '../../models/course.model';
 import { CourseService } from '../../services/course';
 
 @Component({
@@ -20,11 +22,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   message = '';
 
   searchTerm = '';
+  courses$: Observable<Course[]>;
 
-  constructor(private courseService: CourseService) {}
-
-  get availableCourses(): number {
-    return this.courseService.getCourses().length;
+  constructor(private courseService: CourseService) {
+    this.courses$ = this.courseService.getCourses();
   }
 
   ngOnInit(): void {

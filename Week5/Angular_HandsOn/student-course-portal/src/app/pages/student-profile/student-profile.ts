@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 import type { Course } from '../../models/course.model';
 import { EnrollmentService } from '../../services/enrollment';
 
@@ -10,9 +11,9 @@ import { EnrollmentService } from '../../services/enrollment';
   styleUrl: './student-profile.css',
 })
 export class StudentProfile {
-  constructor(private enrollmentService: EnrollmentService) {}
+  enrolledCourses$: Observable<Course[]>;
 
-  get enrolledCourses(): Course[] {
-    return this.enrollmentService.getEnrolledCourses();
+  constructor(private enrollmentService: EnrollmentService) {
+    this.enrolledCourses$ = this.enrollmentService.getEnrolledCourses();
   }
 }

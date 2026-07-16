@@ -1,0 +1,103 @@
+{
+  "courses": [
+    {
+      "name": "Spring Boot",
+      "code": "CS102",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "startDate": "2026-08-12T00:00:00.000Z",
+      "fee": 5500,
+      "progress": 64.2,
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Java",
+      "code": "CS103",
+      "credits": 4,
+      "gradeStatus": "failed",
+      "startDate": "2026-09-03",
+      "fee": 3999,
+      "progress": 48.75
+    },
+    {
+      "id": "4",
+      "name": "SQL",
+      "code": "CS104",
+      "credits": 1,
+      "gradeStatus": "passed",
+      "startDate": "2026-09-20",
+      "fee": 2999,
+      "progress": 88.1
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Asha Kumar",
+      "email": "asha@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Rahul Sharma",
+      "email": "rahul@example.com"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "studentId": 1,
+      "courseId": 1,
+      "preferredSemester": "Odd"
+    },
+    {
+      "id": "2",
+      "studentId": 2,
+      "courseId": 2,
+      "preferredSemester": "Even"
+    },
+    {
+      "studentId": 1,
+      "courseId": null,
+      "preferredSemester": "Odd",
+      "id": "B2qYgOEf7fM"
+    },
+    {
+      "studentId": 1,
+      "courseId": "2",
+      "preferredSemester": "Odd",
+      "id": "bYzxdim4TSM"
+    },
+    {
+      "studentId": 1,
+      "courseId": "3",
+      "preferredSemester": "Odd",
+      "id": "-_piqiQSMwk"
+    },
+    {
+      "studentId": 1,
+      "courseId": "4",
+      "preferredSemester": "Odd",
+      "id": "Gmy0OJpxWOs"
+    },
+    {
+      "studentId": 1,
+      "courseId": "2",
+      "preferredSemester": "Odd",
+      "id": "utdYjQuu-Wg"
+    },
+    {
+      "studentId": 1,
+      "courseId": "3",
+      "preferredSemester": "Odd",
+      "id": "KtflAMlvPbU"
+    },
+    {
+      "studentId": 1,
+      "courseId": "4",
+      "preferredSemester": "Odd",
+      "id": "UZ4SoXrmRL8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
