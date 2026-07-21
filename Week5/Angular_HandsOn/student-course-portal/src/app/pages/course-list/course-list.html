@@ -1,0 +1,79 @@
+<h2>Available Courses</h2>
+
+<app-course-summary-widget></app-course-summary-widget>
+
+<label class="search-field" for="courseSearch">
+  Search courses
+  <input
+    id="courseSearch"
+    type="search"
+    [(ngModel)]="searchTerm"
+    (ngModelChange)="onSearchChange()"
+    placeholder="Search by name or code"
+  />
+</label>
+
+<form class="course-editor" (ngSubmit)="saveCourse()">
+  <h3>{{ editCourseId === null ? 'Add Course' : 'Edit Course' }}</h3>
+
+  <input name="name" [(ngModel)]="newCourse.name" placeholder="Course name" required />
+  <input name="code" [(ngModel)]="newCourse.code" placeholder="Code" required />
+  <input name="credits" type="number" [(ngModel)]="newCourse.credits" placeholder="Credits" min="1" required />
+  <select name="gradeStatus" [(ngModel)]="newCourse.gradeStatus">
+    <option value="passed">Passed</option>
+    <option value="failed">Failed</option>
+    <option value="pending">Pending</option>
+  </select>
+  <input name="startDate" type="date" [(ngModel)]="newCourse.startDate" required />
+  <input name="fee" type="number" [(ngModel)]="newCourse.fee" placeholder="Fee" min="0" required />
+  <input name="progress" type="number" [(ngModel)]="newCourse.progress" placeholder="Progress" min="0" max="100" required />
+
+  <button type="submit">{{ editCourseId === null ? 'Create' : 'Update' }}</button>
+  <button type="button" (click)="resetCourseForm()">Reset</button>
+</form>
+
+<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+<p class="error-message" *ngIf="storeError$ | async as storeError">{{ storeError }}</p>
+<p class="success-message" *ngIf="courseMessage">{{ courseMessage }}</p>
+
+<p *ngIf="loading$ | async; else coursesLoaded">Loading courses...</p>
+
+<ng-template #coursesLoaded>
+  <section class="course-grid" *ngIf="filteredCourses$ | async as filteredCourses">
+    <article class="course-item" *ngFor="let course of filteredCourses; let i = index; trackBy: trackByCourseId">
+      <app-course-card
+        appHighlight="lightblue"
+        [course]="course"
+        (courseSelected)="openCourse($event)"
+        (enrollRequested)="onEnroll($event)">
+      </app-course-card>
+
+      <div class="course-actions">
+        <button type="button" (click)="editCourse(course)">Edit {{ course.code }}</button>
+        <button type="button" class="delete-button" (click)="deleteCourse(course.id)">Delete {{ course.code }}</button>
+      </div>
+    </article>
+
+    <p *ngIf="filteredCourses.length === 0">No courses available.</p>
+  </section>
+</ng-template>
+
+<ng-template #noCourses>
+  <p>No courses available.</p>
+</ng-template>
+
+<p *ngIf="selectedCourseId">
+
+Selected course ID :
+
+{{selectedCourseId}}
+
+</p>
+
+<section *ngIf="selectedCourseId" class="student-list">
+  <h3>Enrolled Students</h3>
+  <p *ngIf="enrolledStudents.length === 0">No students enrolled for this course.</p>
+  <ul *ngIf="enrolledStudents.length > 0">
+    <li *ngFor="let student of enrolledStudents">{{ student.name }} - {{ student.email }}</li>
+  </ul>
+</section>

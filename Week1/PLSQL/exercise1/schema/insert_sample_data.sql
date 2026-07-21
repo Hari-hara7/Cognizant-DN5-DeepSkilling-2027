@@ -1,0 +1,4 @@
+INSERT INTO Customers Values (1,'Hari',To_DATE('1950-05-15','YYYY-MM-DD'),15000,SYSDATE);
+
+
+INSERT INTO Customers Values (2,'Vinay',TO_DATE('1995-07-20','YYYY-MM-DD'),5000,SYSDATE);

@@ -1,0 +1,10 @@
+.course-detail {
+  max-width: 720px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.course-detail a {
+  display: inline-block;
+  margin-bottom: 14px;
+}

@@ -1,0 +1,7 @@
+<aside class="summary-widget">
+  <ng-container *ngIf="courses$ | async as courses">
+    <p>Total courses from CourseService: {{ courses.length }}</p>
+
+    <button type="button" (click)="addDemoCourse(courses.length)">Add Demo Course</button>
+  </ng-container>
+</aside>
